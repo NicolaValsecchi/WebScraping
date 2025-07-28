@@ -47,9 +47,7 @@ class PressRoutine:
         self._webdriver.openNewPage(self._home_url_FT)
         #n_pages = self._webdriver.getOpenPagesNumber()
 
-        iframe = self._webdriver.get_webdriver().find_element(By.XPATH, '//*[@id="sp_message_iframe_1299719"]')
-        # NOTE: The iframe ID (sp_message_iframe_1299719) may change over time.
-        # If this selector fails, inspect the updated iframe ID and modify the XPath accordingly.
+        iframe = self._webdriver.get_webdriver().find_element(By.CSS_SELECTOR, "iframe[id^='sp_message_iframe_']")
 
         self._webdriver.get_webdriver().switch_to.frame(iframe)
         self._webdriver.pressByXPATH("Accept Cookies", 5)
